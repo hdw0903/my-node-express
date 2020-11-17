@@ -2,10 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import apiRouter from './routes/index';
 import cors from 'cors';
+import detenv from 'dotenv';
 
 const PORT = 5000;
 const app = express();
 
+detenv.config();
 app.use(bodyParser.json());
 
 app.use(cors());
