@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "exit",
+    "test": "mocha recursive test/*.spec.js",
     "dev": "nodemon -r esm --inspect server.js",
     "start": "node -r esm server.js"
   },
@@ -18,5 +18,8 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.0"
   }
 }
