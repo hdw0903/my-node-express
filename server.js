@@ -9,23 +9,30 @@ const app = express();
 
 detenv.config();
 app.use(bodyParser.json());
-
-app.use(cors());
-// middleware
-// app.use((req, res, next) => {
-//   next();
-// });
+const whitelist = ['https://hdw0903.github.io'];
+const corsOptions = {
+  origin: function (origin, callback) {
+    const isProduction = process.env.NODE_ENV === 'production';
+    if (!isProduction) callback(null, true);
+    else {
+      const isWhiteOrigin = whitelist.some((item) => origin.includes(item));
+      if (isWhiteOrigin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  },
+};
+app.use(cors(corsOptions));
 app.use('/api', apiRouter);
 app.get('/', (req, res) => {
-  console.log(req);
   res.send('hello world ');
 });
 app.get('/posts', (req, res) => {
   res.send('hello posts');
 });
 app.get('/posts/:id', (req, res, next) => {
-  console.log(req.params);
-  console.log(req.query);
   if (isNaN(+req.params.id)) {
     throw new Error('숫자만 돼요.');
     // next(new Error('숫자만 돼요.'));

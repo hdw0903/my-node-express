@@ -9,6 +9,6 @@ router.get('/books/:id', books.getBookById);
 router.post('/books', books.createBook);
 router.put('/books/:id', books.updateBookById);
 router.delete('/books/:id', books.deleteBookById);
-router.post('/papago/detectLangs', papago.detectLangs);
-router.post('/papago/n2mt', papago.n2mt);
+router.post('/papago/detectionLangs', papago.detectLangs);
+router.post('/papago/translation', papago.translate);
 export default router;

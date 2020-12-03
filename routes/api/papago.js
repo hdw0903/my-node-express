@@ -23,7 +23,7 @@ export const detectLangs = async (req, res, next) => {
     next(e.response.data);
   }
 };
-export const n2mt = async (req, res, next) => {
+export const translate = async (req, res, next) => {
   try {
     const { source, target, text } = req.body;
     const result = await axios(translateURL, {

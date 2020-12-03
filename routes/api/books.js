@@ -8,7 +8,6 @@ const books = [
 let bookId = 6;
 
 export const getBooks = (req, res) => {
-  console.log(req.headers);
   res.json(books);
 };
 
@@ -42,12 +41,6 @@ export const createBook = (req, res, next) => {
 
 export const updateBookById = (req, res, next) => {
   try {
-    /* 
-    북 인덱스가 북스에 존재하지 않을 때 ..
-    타이틀이 겹칠 때 
-    body . title 값이 없을 때
-    id 값이 숫자가 아닐 때
-    */
     const { title } = req.body;
     const id = +req.params.id;
     if (!title) {
