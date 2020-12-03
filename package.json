@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo no tests now",
+    "test": "exit",
     "dev": "nodemon -r esm --inspect server.js",
     "start": "node -r esm server.js"
   },
