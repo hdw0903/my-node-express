@@ -2,8 +2,10 @@ language: generic
 sudo: required
 services:
   - docker
+before_install:
+  - docker build -t hdw0903/my-express .
 script:
-  - npm run test
+  - docker run -e CI=true hdw0903/my-express npm run test
 after_success:
   - docker build -t hdw0903/my-express .
   - docker build -t hdw0903/my-express-nginx ./nginx
