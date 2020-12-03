@@ -17,9 +17,7 @@
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "nodemon": "^2.0.6"
-  },
-  "devDependencies": {
-    "mocha": "^3.5.0"
+    "nodemon": "^2.0.6",
+    "mocha": "^8.2.1"
   }
 }
