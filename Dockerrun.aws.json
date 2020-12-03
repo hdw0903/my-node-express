@@ -1,0 +1,26 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "backend",
+      "image": "hdw0903/my-express",
+      "hostname": "backend",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "hdw0903/my-express-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["backend"],
+      "memory": 128
+    }
+  ]
+}

@@ -12,3 +12,15 @@ after_success:
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
   - docker push hdw0903/my-express
   - docker push hdw0903/my-express-nginx
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-northeast-2'
+  app: 'my-node-express'
+  env: 'MyNodeExpress-env'
+  bucket_name: 'elasticbeanstalk-ap-northeast-2-253087404130'
+  bucket_path: 'my-node-express'
+  on:
+    branch: main
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
