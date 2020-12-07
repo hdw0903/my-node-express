@@ -10,6 +10,7 @@ const app = express();
 detenv.config();
 app.use(bodyParser.json());
 const whitelist = ['https://hdw0903.github.io'];
+
 const corsOptions = {
   origin: function (origin, callback) {
     const isProduction = process.env.NODE_ENV === 'production';
