@@ -19,8 +19,7 @@ deploy:
   env: 'MyNodeExpress-env'
   bucket_name: 'elasticbeanstalk-ap-northeast-2-253087404130'
   bucket_path: 'my-node-express'
-  on:
-    branch: main
-
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
+  on:
+    branch: main
