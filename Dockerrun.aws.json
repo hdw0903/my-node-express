@@ -2,9 +2,9 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "backend",
+      "name": "my-express",
       "image": "hdw0903/my-express",
-      "hostname": "backend",
+      "hostname": "my-express",
       "essential": false,
       "memory": 128
     },
@@ -19,7 +19,7 @@
           "containerPort": 80
         }
       ],
-      "links": ["backend"],
+      "links": ["my-express"],
       "memory": 128
     }
   ]
