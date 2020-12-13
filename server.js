@@ -9,24 +9,10 @@ const app = express();
 
 detenv.config();
 app.use(bodyParser.json());
-const whitelist = ['https://hdw0903.github.io'];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    const isProduction = process.env.NODE_ENV === 'production';
-    if (!isProduction) callback(null, true);
-    else {
-      const isWhiteOrigin = whitelist.some((item) => origin.includes(item));
-      if (isWhiteOrigin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    }
-  },
-};
-// app.use(cors(corsOptions));
-// app.use(cors());
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors());
+}
 app.use('/api', apiRouter);
 app.get('/', (req, res) => {
   res.send('hello world ');
