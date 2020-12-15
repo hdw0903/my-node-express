@@ -12,7 +12,12 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === 'development') {
   app.use(cors());
 } else {
-  const whitelist = ['http://hdw0903.github.io', 'https://hdw0903.github.io'];
+  const whitelist = [
+    'http://hdw0903.github.io',
+    'https://hdw0903.github.io',
+    'https://tunaserver.ml',
+    'http://mynodeexpress-env.eba-439z5hhp.ap-northeast-2.elasticbeanstalk.com',
+  ];
   const corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
