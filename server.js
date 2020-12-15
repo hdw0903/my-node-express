@@ -9,21 +9,21 @@ const app = express();
 
 detenv.config();
 app.use(bodyParser.json());
-
 if (process.env.NODE_ENV === 'development') {
   app.use(cors());
+} else {
+  const whitelist = ['http://hdw0903.github.io', 'https://hdw0903.github.io'];
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  };
+  app.use(cors(corsOptions));
 }
-const whitelist = ['http://hdw0903.github.io', 'https://hdw0903.github.io'];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
-app.use(cors(corsOptions));
 app.use('/api', apiRouter);
 app.get('/', (req, res) => {
   res.send('hello world ');
