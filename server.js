@@ -15,8 +15,10 @@ if (process.env.NODE_ENV === 'development') {
   const whitelist = [
     'http://hdw0903.github.io',
     'https://hdw0903.github.io',
-    'https://tunaserver.ml',
+    'http://www.tunaserver.ml',
+    'https://www.tunaserver.ml',
     'http://mynodeexpress-env.eba-439z5hhp.ap-northeast-2.elasticbeanstalk.com',
+    'https://mynodeexpress-env.eba-439z5hhp.ap-northeast-2.elasticbeanstalk.com',
   ];
   const corsOptions = {
     origin: function (origin, callback) {
